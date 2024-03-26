@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { 
     ClerkLoaded, 
     ClerkLoading,
@@ -22,8 +23,21 @@ export const Header = () => {
                 </ClerkLoading>
                 <ClerkLoaded>
                     <SignedIn>
-                        <UserButton />
+                        <UserButton 
+                            afterSignOutUrl="/"
+                        />
                     </SignedIn>
+                    <SignedOut>
+                        <SignInButton 
+                            mode="modal"
+                            afterSignInUrl="/learn"
+                            afterSignUpUrl="/learn"
+                        >
+                            <Button size="lg" variant={"ghost"}>
+                                Entrar
+                            </Button>
+                        </SignInButton>
+                    </SignedOut>
                 </ClerkLoaded>
             </div>
         </header>
