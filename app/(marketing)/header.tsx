@@ -1,3 +1,12 @@
+import { 
+    ClerkLoaded, 
+    ClerkLoading,
+    SignedIn, 
+    SignedOut,
+    SignInButton,
+    UserButton,
+} from "@clerk/nextjs";
+import { Loader } from "lucide-react";
 import Image  from "next/image";
 
 export const Header = () => {
@@ -8,6 +17,14 @@ export const Header = () => {
                     <Image src="/mascot.svg" height={40} width={40} alt="Mascote"/>
                     <h1 className="text-2xl font-extrabold text-green-600 tracking-wide">Lingo</h1>
                 </div>
+                <ClerkLoading>
+                    <Loader className="h-5 w-5 text-muted-foregroud animate-spin"/>
+                </ClerkLoading>
+                <ClerkLoaded>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
+                </ClerkLoaded>
             </div>
         </header>
     )
